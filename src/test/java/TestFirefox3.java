@@ -1,4 +1,5 @@
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -18,17 +19,13 @@ public class TestFirefox3 {
     
     @BeforeMethod
     public void setUp() throws Exception {
-        wd = new ChromeDriver();
-        wd.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        wd = new InternetExplorerDriver();
+        wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
     
     @Test
     public void TestFirefox3() {
         wd.get("http://localhost/litecart/admin/login.php?redirect_url=%2Flitecart%2Fadmin%2F");
-        wd.findElement(By.name("username")).click();
-        wd.findElement(By.name("username")).sendKeys("\\undefined");
-        wd.findElement(By.name("password")).click();
-        wd.findElement(By.name("password")).sendKeys("\\undefined");
         wd.findElement(By.name("username")).click();
         wd.findElement(By.name("username")).clear();
         wd.findElement(By.name("username")).sendKeys("admin");

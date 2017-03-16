@@ -1,5 +1,6 @@
 package ru.stqa.selenium;
 
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -15,11 +16,11 @@ import org.openqa.selenium.*;
 import static org.openqa.selenium.OutputType.*;
 
 public class OilBudha {
-    FirefoxDriver wd;
+    ChromeDriver wd;
     
     @BeforeMethod
     public void setUp() throws Exception {
-        wd = new FirefoxDriver();
+        wd = new ChromeDriver();
         wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
     
@@ -79,7 +80,7 @@ public class OilBudha {
         wd.quit();
     }
     
-    public static boolean isAlertPresent(FirefoxDriver wd) {
+    public static boolean isAlertPresent(ChromeDriver wd) {
         try {
             wd.switchTo().alert();
             return true;
